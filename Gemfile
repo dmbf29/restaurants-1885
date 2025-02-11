@@ -64,4 +64,5 @@ group :test do
 end
 
 # Custom Added
+gem 'faker'
 gem 'ostruct'
