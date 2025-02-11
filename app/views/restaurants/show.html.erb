@@ -1,0 +1,11 @@
+<div class="container">
+  <h1><%= @restaurant.name %></h1>
+  <p><%= @restaurant.address %></p>
+  <p><%= '*' * @restaurant.rating %></p>
+  <p>
+    <%#= link_to 'Text you see', prefix_path  %>
+    <%= link_to restaurants_path, class: 'btn btn-secondary' do %>
+      <i class="fa-solid fa-house"></i>
+    <% end %>
+  </p>
+</div>
