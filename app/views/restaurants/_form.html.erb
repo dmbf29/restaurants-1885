@@ -1,13 +1,6 @@
-<% @restaurant.errors.full_messages.each do |msg| %>
-  <p class="text-danger"><%= msg %></p>
-<% end %>
-<%= form_with model: @restaurant do |f| %>
-  <!-- also added the authenticity_token -->
-  <%= f.label :name, class: 'form-label' %>
-  <%= f.text_field :name, class: 'form-control' %>
-  <%= f.label :address, class: 'form-label' %>
-  <%= f.text_field :address, class: 'form-control' %>
-  <%= f.label :rating, class: 'form-label' %>
-  <%= f.number_field :rating, class: 'form-control' %>
+<%= simple_form_for restaurant do |f| %>
+  <%= f.input :name, input_html: { class: 'bg-warning' } %>
+  <%= f.input :address, wrapper_html: { class: 'bg-info' } %>
+  <%= f.input :rating, collection: (1..5).to_a %>
   <%= f.submit 'Submit', class: 'btn btn-success mt-2' %>
 <% end %>
