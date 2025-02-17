@@ -2,5 +2,6 @@
   <%= f.input :name, input_html: { class: 'bg-warning' } %>
   <%= f.input :address, wrapper_html: { class: 'bg-info' } %>
   <%= f.input :rating, collection: (1..5).to_a %>
+  <%= f.input :opening_date %>
   <%= f.submit 'Submit', class: 'btn btn-success mt-2' %>
 <% end %>
