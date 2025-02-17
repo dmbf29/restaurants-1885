@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   # resources is ONLY for CRUD routes
+  root to: 'restaurants#index'
   resources :restaurants do
     resources :reviews, only: [:new, :create]
   end
