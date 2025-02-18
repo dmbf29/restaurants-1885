@@ -19,6 +19,7 @@ class RestaurantsController < ApplicationController
   def show
     # Rails pulls the id from the URL and puts in the params
     @restaurant = Restaurant.find(params[:id])
+    @review = Review.new
   end
 
   # '/restaurants/new'

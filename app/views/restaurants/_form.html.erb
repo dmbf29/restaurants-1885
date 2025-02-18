@@ -2,6 +2,6 @@
   <%= f.input :name %>
   <%= f.input :address %>
   <%= f.input :rating, collection: (1..5).to_a %>
-  <%= f.input :opening_date %>
+  <%= f.input :opening_date, as: :string, input_html: { data: { controller: 'datepicker' } } %>
   <%= f.submit 'Submit', class: 'btn btn-success mt-2' %>
 <% end %>

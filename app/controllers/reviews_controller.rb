@@ -1,10 +1,10 @@
 class ReviewsController < ApplicationController
 
   # '/restaurants/:restaurant_id/reviews/new'
-  def new
-    @review = Review.new
-    @restaurant = Restaurant.find(params[:restaurant_id])
-  end
+  # def new
+  #   @review = Review.new
+  #   @restaurant = Restaurant.find(params[:restaurant_id])
+  # end
 
   # POST '/restaurants/:restaurant_id/reviews' (only from a form)
   def create
