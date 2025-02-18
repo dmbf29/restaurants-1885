@@ -21,38 +21,7 @@
       </div>
       <p class="fw-lighter opacity-75 mt-2"><%= Faker::Restaurant.description  %></p>
       <h3>Reviews</h3>
-      <p>
-        <%#= link_to 'Add Review', new_restaurant_review_path(@restaurant), class: 'btn btn-primary'  %>
-        <a class="btn btn-primary" data-bs-toggle="collapse" href="#newReview" role="button" aria-expanded="false" aria-controls="collapseExample">
-          Add Review
-        </a>
-        <div class="collapse" id="newReview">
-          <div class="card card-body" data-controller="character-counter">
-            <%= simple_form_for [@restaurant, @review] do |f| %>
-              <%= f.input :content, input_html: { data: {
-                                                    action: "keyup->character-counter#count",
-                                                    character_counter_target: 'input'
-                                                } } %>
-              <div class="form-text" data-character-counter-target="counter">
-                0 characters
-              </div>
-              <%= f.submit class: 'btn btn-primary mt-2' %>
-            <% end %>
-          </div>
-        </div>
-      </p>
-      <ul>
-        <% if @restaurant.reviews.any? %>
-          <% @restaurant.reviews.each do |review| %>
-            <li>
-              <%= review.content %>
-              <%= link_to 'x', review_path(review), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: 'text-decoration-none text-secondary'  %>
-            </li>
-          <% end %>
-        <% else %>
-          <li>No reviews yet.</li>
-        <% end %>
-      </ul>
+      <%= render 'reviews/index', restaurant: @restaurant, review: @review %>
     </div>
     <div class="col-12 col-sm-4 mt-5">
       <%= render 'restaurants/side_info' %>

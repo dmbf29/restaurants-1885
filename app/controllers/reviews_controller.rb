@@ -11,10 +11,18 @@ class ReviewsController < ApplicationController
     @restaurant = Restaurant.find(params[:restaurant_id])
     @review = Review.new(review_params)
     @review.restaurant = @restaurant
-    if @review.save
-      redirect_to restaurant_path(@restaurant)
-    else
-      render 'new', status: :unprocessable_entity
+    @review.save
+    respond_to do |format|
+      format.html { redirect_to restaurant_path(@restaurant) }
+      format.turbo_stream do
+        render turbo_stream: turbo_stream.replace("reviews",
+          partial: 'reviews/index',
+          locals: {
+            restaurant: @restaurant,
+            review: Review.new
+          }
+        )
+      end
     end
   end
 
