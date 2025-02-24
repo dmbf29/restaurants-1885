@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   # resources is ONLY for CRUD routes
   root to: 'restaurants#index'
   resources :restaurants do

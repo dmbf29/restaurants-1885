@@ -44,6 +44,7 @@ gem "bootsnap", require: false
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   gem "debug", platforms: %i[ mri windows ]
+  gem 'dotenv'
 end
 
 group :development do
@@ -65,8 +66,10 @@ end
 
 # Custom Added:
 gem "bootstrap", "~> 5.2"
+gem "devise"
 gem "faker"
 gem "font-awesome-sass", "~> 6.1"
 gem 'ostruct'
+gem "pundit"
 gem "sassc-rails"
 gem "simple_form"
